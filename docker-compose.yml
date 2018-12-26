@@ -4,10 +4,8 @@ services:
     build: ./devops/docker/postgis
     image: tasking-manager-db
     container_name: tasking-manager-db
-    environment:
-      - POSTGRES_USER=hottm
-      - POSTGRES_PASSWORD=hottm
-      - POSTGRES_DB=tasking-manager
+    env_file:
+      - tmdb-vars.env
   tasking-manager:
     build: ./
     image: tasking-manager
@@ -16,9 +14,5 @@ services:
       - tasking-manager-db
     ports:
       - "8000:8000"
-    environment:
-      - TM_DB=postgresql://hottm:hottm@tasking-manager-db/tasking-manager
-      - TM_CONSUMER_KEY=hbG8pMW7GhZR0JGZJZBMcrSBOYfggEwylYstZbkP
-      - TM_CONSUMER_SECRET=jHsCx8KPVGD5PKk9JfBAzOX0E5AfoPO6IddVAx9M
-      - TM_ENV=Prod
-      - TM_SECRET=45dfHJJ456dRh378gGFergeqrgtDFGerterRte
+    env_file:
+      - tm-vars.env
