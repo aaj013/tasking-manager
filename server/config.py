@@ -4,9 +4,9 @@ import os
 
 class EnvironmentConfig:
     """ Base class for config that is shared between environments """
-    DEFAULT_CHANGESET_COMMENT = '#hotosm-project'
+    DEFAULT_CHANGESET_COMMENT = '#icfoss-mapping-project'
     # This is the address we'll use as the sender on all auto generated emails
-    EMAIL_FROM_ADDRESS = 'noreply@hotosmmail.org'
+    EMAIL_FROM_ADDRESS = 'mappingtasks.icfoss@gmail.com'
     LOG_LEVEL = logging.ERROR
     # Mapper Level values represent number of OSM changesets
     MAPPER_LEVEL_INTERMEDIATE = 250
@@ -37,13 +37,13 @@ class EnvironmentConfig:
     }
     # Note that there must be exactly the same number of Codes as languages, or errors will occur
     SUPPORTED_LANGUAGES = {
-        'codes': 'ar, cs, da, de, en, es, fa_IR, fi, fr, hu, gl, id, it, ja, lt, mg, nb, nl_NL, pl, pt, pt_BR, ru, si, sl, ta, uk, vi, zh_TW',
-        'languages': 'Arabic, Česky, Dansk, Deutsch, English, Español, Persian (Iran), Suomi, Français, Magyar, Galician, Indonesia, Italiano, 日本語, Lietuvos, Malagasy, Bokmål, Nederlands, Polish, Português, Português (Brasil), Русский, සිංහල, Slovenščina, தமிழ், Українська, tiếng Việt, 中文'
+        'codes': 'en, ml',
+        'languages': 'English, Malayalam (മലയാളം)'
     }
 
 
 class ProdConfig(EnvironmentConfig):
-    APP_BASE_URL = 'https://tasks.hotosm.org'
+    APP_BASE_URL = 'https://webodm.icfoss.org'
     API_DOCS_URL = f'{APP_BASE_URL}/api-docs/swagger-ui/index.html?' + \
                    f'url={APP_BASE_URL}/api/docs'
     LOG_DIR = '/var/log/tasking-manager-logs'
